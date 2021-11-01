@@ -12,13 +12,13 @@ const app = express();
 
 //connect to Mongo
 const dbURI = process.env.DB_KEY;
-const port = process.env.PORT;
+const port = process.env.PORT || 8000;
 
 mongoose
   .connect(dbURI)
   .then((res) => {
     console.log("Connected to DB");
-    app.listen(port || 3000);
+    app.listen(port);
   })
   .catch((err) => {
     console.log(err);
